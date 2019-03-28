@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Appcloud</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-light bg-light">
+     <a class="navbar-brand" href="/">GoLF</a>
+     <% if current_user %>
+     <form class="form-inline">
+      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+      <% else %>
+      <div style="padding-left: 10px;">
+        <a class="btn btn-outline-primary" href="users/sign_in" role="button">
+          Login
+        </a>
+        <a class="btn btn-outline-success" href="users/sign_up" role="button">
+          Sign Up
+        </a>
+      </div>
+      <% end %>
+     </form>
+    </nav>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>
