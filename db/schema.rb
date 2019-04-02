@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_27_224801) do
+ActiveRecord::Schema.define(version: 2019_04_01_223006) do
+
+  create_table "comments", force: :cascade do |t|
+    t.text "body"
+    t.integer "trainer_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trainer_id"], name: "index_comments_on_trainer_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.string "course_name"
+    t.string "location"
+    t.integer "holes"
+    t.integer "par"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "schedules", force: :cascade do |t|
     t.string "title"
@@ -19,6 +38,8 @@ ActiveRecord::Schema.define(version: 2019_03_27_224801) do
     t.integer "trainer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "course_id"
+    t.index ["course_id"], name: "index_schedules_on_course_id"
     t.index ["trainer_id"], name: "index_schedules_on_trainer_id"
   end
 
@@ -42,6 +63,7 @@ ActiveRecord::Schema.define(version: 2019_03_27_224801) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "admin", default: false
+    t.boolean "trainer", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

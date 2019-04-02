@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
 
   # GET /schedules
@@ -7,6 +8,7 @@ class SchedulesController < ApplicationController
     @schedules = Schedule.all
   end
 
+  
   # GET /schedules/1
   # GET /schedules/1.json
   def show
@@ -69,6 +71,6 @@ class SchedulesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def schedule_params
-      params.require(:schedule).permit(:title, :start_time, :end_time, :trainer_id)
+      params.require(:schedule).permit(:title, :start_time, :end_time, :trainer_id, :course_id)
     end
 end

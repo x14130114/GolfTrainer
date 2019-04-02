@@ -1,4 +1,6 @@
 class TrainersController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :ensure_admin, except: [:index, :show]
   before_action :set_trainer, only: [:show, :edit, :update, :destroy]
 
   # GET /trainers
@@ -70,5 +72,11 @@ class TrainersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def trainer_params
       params.require(:trainer).permit(:photo, :first_name, :last_name, :phone, :bio, :experience)
+    end
+
+    def ensure_admin
+      unless current_user.admin?
+        redirect_to(trainers_path, notice: 'Not authorized to create a Trainer')
+      end
     end
 end

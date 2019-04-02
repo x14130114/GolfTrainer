@@ -1,0 +1,11 @@
+<% if current_user %>
+	<%= form_for([@trainer,@trainer.comments.build]) do |f| %>
+	  <p>
+	      <%= f.label :body %>
+	      <%= f.text_area :body %>
+	  </p>
+	  <p>
+	  	  <%= f.submit %>
+	  </p>
+	<% end %>
+<% end %>

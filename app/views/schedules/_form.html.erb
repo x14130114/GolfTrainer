@@ -1,37 +1,49 @@
-<%= form_with(model: schedule, local: true) do |form| %>
-  <% if schedule.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
+<div class="container">  
+  <%= form_with(model: schedule, local: true) do |form| %>
+    <% if schedule.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(schedule.errors.count, "error") %> prohibited this schedule from being saved:</h2>
 
-      <ul>
-      <% schedule.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% schedule.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :start_time %>
+      <%= form.datetime_select :start_time,
+        {ampm: true,
+        ignore_date: false,
+        start_hour: 8, 
+        end_hour: 17,
+        discard_minute: true,
+        prompt: true,
+        prompt: { hour: "Choose hr" }}
+      %>
+    </div>
+
+    <div class="field">
+      <%= form.label :trainer %>
+      <%= form.number_field :trainer_id %>
+      <%= form.collection_select(:trainer_id, Trainer.all, :id, :first_name) %>
+    </div>
+
+    <div class="field">
+      <%= form.label :course_id %>
+      <%= form.number_field :course_id %>
+      <%= form.collection_select(:course_id, Course.all, :id, :course_name) %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :start_time %>
-    <%= form.datetime_select :start_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :end_time %>
-    <%= form.datetime_select :end_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label :trainer_id %>
-    <%= form.number_field :trainer_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

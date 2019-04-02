@@ -30,5 +30,12 @@
   <%= @trainer.experience %>
 </p>
 
-<%= link_to 'Edit', edit_trainer_path(@trainer) %> |
+<h2> <%= @trainer.comments.count %> Comments</h2>
+    <%= render @trainer.comments %>
+    <% if current_user %>
+    <h3>Add a Comment: </h3>
+    <%= render 'comments/form' %>
+<br>
+<%= link_to 'Edit', edit_trainer_path(@trainer) %> <br>
+<% end %>
 <%= link_to 'Back', trainers_path %>
