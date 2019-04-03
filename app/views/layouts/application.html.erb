@@ -2,33 +2,52 @@
 <html>
   <head>
     <title>Appcloud</title>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAlzBiGCJBXxZ32wyK4mxuTYDRLwcwbO04' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true%>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= yield(:head_tags) %>
   </head>
 
   <body>
-    <nav class="navbar navbar-light bg-light">
-     <a class="navbar-brand" href="/">GoLF</a>
-     <% if current_user %>
-     <form class="form-inline">
-      <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-      <% else %>
-      <div style="padding-left: 10px;">
-        <a class="btn btn-outline-primary" href="users/sign_in" role="button">
-          Login
-        </a>
-        <a class="btn btn-outline-success" href="users/sign_up" role="button">
-          Sign Up
-        </a>
-      </div>
-      <% end %>
-     </form>
-    </nav>
+    <nav class="navbar navbar-light bg-light" role="navigation">
+    <ul class="nav nav-tabs navbar-right">
+      <% if current_user %>
+        <li>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+        </li>
+        <% else %>
+        <li>
+            <a class="btn btn-outline-primary" href="users/sign_in" role="button">
+              Login
+            </a>
+        </li>
+        <li>
+            <a class="btn btn-outline-success" href="users/sign_up" role="button">
+              Sign Up
+            </a>
+        </li>
+        <% end %>
+    </ul>
+    <ul class="nav nav-tabs navbar-left">
+        <li class="nav-item">
+            <a class="navbar-link active" href="/">GoLF</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/trainers">Trainers</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/courses">Courses</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="/schedules">Schedules</a>
+        </li>
+    </ul>
+  </nav>
+
     <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

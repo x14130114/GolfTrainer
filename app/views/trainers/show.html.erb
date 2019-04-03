@@ -1,34 +1,28 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Photo:</strong>
-  <%= @trainer.photo %>
-</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Photo</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Phone</th>
+      <th>Bio</th>
+      <th>Experience</th>
+    </tr>
+  </thead>
 
-<p>
-  <strong>First name:</strong>
-  <%= @trainer.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @trainer.last_name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @trainer.phone %>
-</p>
-
-<p>
-  <strong>Bio:</strong>
-  <%= @trainer.bio %>
-</p>
-
-<p>
-  <strong>Experience:</strong>
-  <%= @trainer.experience %>
-</p>
+  <tbody>
+      <tr>
+        <td><%= @trainer.photo %></td>
+        <td><%= @trainer.first_name %></td>
+        <td><%= @trainer.last_name %></td>
+        <td><%= @trainer.phone %></td>
+        <td><%= @trainer.bio %></td>
+        <td><%= @trainer.experience %></td>
+      </tr>
+  </tbody>
+</table>
 
 <h2> <%= @trainer.comments.count %> Comments</h2>
     <%= render @trainer.comments %>
