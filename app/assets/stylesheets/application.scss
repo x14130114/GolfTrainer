@@ -1,34 +1,3 @@
 @import "/*";
-@import "bootstrap";
 @import "tether";
 
-:root {
-  --input-padding-x: 1.5rem;
-  --input-padding-y: .75rem;
-}
-
-body {
-  background: #005bff;
-  background: linear-gradient(to right, #B2B2B2, #353535);
-}
-
-th {
-  background: #DDD;
-  color: #666;
-  text-align: center;
-  width: 14.2857142857143%;
-  padding: 6px;
-  border: 1px solid #999;
-}
-
-.navbar-brand
-{
-    position: absolute;
-    width: 100%;
-    left: 0;
-    text-align: center;
-    margin:0 auto;
-}
-.navbar-toggle {
-    z-index:3;
-}

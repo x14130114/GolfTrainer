@@ -1,0 +1,7 @@
+<h3>Search Result</h3>  
+    <% @results.each do |result| %>  
+    <%= link_to result.course_name, course_path(result.id) %>
+    <% end %>
+    <% @answers.each do |answer| %>  
+    <%= link_to answer.first_name, trainer_path(answer.id) %>
+    <% end %>

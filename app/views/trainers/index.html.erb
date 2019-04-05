@@ -2,38 +2,36 @@
 
 <h1>Trainers</h1>
 
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Photo</th>
-      <th>First name</th>
-      <th>Last name</th>
-      <th>Phone</th>
-      <th>Bio</th>
-      <th>Experience</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @trainers.each do |trainer| %>
-      <tr>
-        <td><%= trainer.photo %></td>
-        <td><%= trainer.first_name %></td>
-        <td><%= trainer.last_name %></td>
-        <td><%= trainer.phone %></td>
-        <td><%= trainer.bio %></td>
-        <td><%= trainer.experience %></td>
-        <td><%= link_to 'Show', trainer %></td>
+<% @trainers.each do |trainer| %>
+<div class="box">
+  <article class="media">
+    <div class="media-left">
+      <figure class="image is-64x64">
+        <%=image_tag("user.png")%>
+      </figure>
+    </div>
+    <div class="media-content">
+      <div class="content">
+        <p>
+          <strong><%= trainer.first_name %></strong><strong><%= trainer.last_name %></strong><small>     </small><small><%= trainer.experience %> Experience</small>
+          <br>
+          <%= trainer.bio %>
+          <br>
+          <p><b>Contact No:</b> <%= trainer.phone %></p>
+          <%= link_to 'Show', trainer %>
         <% if current_user && current_user.admin? %>
-          <td><%= link_to 'Edit', edit_trainer_path(trainer) %></td>
-          <td><%= link_to 'Destroy', trainer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <%= link_to 'Edit', edit_trainer_path(trainer) %>
+          <%= link_to 'Destroy', trainer, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+        </p>
+      </div>
+    </div>
+  </article>
+</div>
+<% end %>
 
 <br>
 
-<%= link_to 'New Trainer', new_trainer_path %>
+<a class="button is-primary" href="trainers/new" role="button">
+  New Trainer
+</a>

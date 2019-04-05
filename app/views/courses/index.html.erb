@@ -2,9 +2,9 @@
 
 <h1>Courses</h1>
 
-<table class="table table-striped">
+<table class="table is-bordered is-hoverable is-fullwidth">
   <thead>
-    <tr>
+    <tr class="is-selected"> 
       <th>Course name</th>
       <th>Location</th>
       <th>Holes</th>
@@ -32,4 +32,6 @@
 
 <br>
 
-<%= link_to 'New Course', new_course_path %>
+<a class="button is-primary" href="courses/new" role="button">
+  New Course
+</a>
