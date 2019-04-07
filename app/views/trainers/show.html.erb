@@ -23,7 +23,11 @@
 <h2> <%= @trainer.comments.count %> Comments</h2>
     <%= render @trainer.comments %>
     <% if current_user %>
+    <div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
     <h3>Add a Comment: </h3>
+  </div>
+</div>
     <%= render 'comments/form' %>
 <br>
 <%= link_to 'Edit', edit_trainer_path(@trainer) %> <br>

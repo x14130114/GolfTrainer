@@ -1,11 +1,18 @@
 <% if current_user %>
 	<%= form_for([@trainer,@trainer.comments.build]) do |f| %>
+	<div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
 	  <p>
-	      <%= f.label :body %>
-	      <%= f.text_area :body %>
+	      <%= f.label :body, class: "label is-medium"%>
+	      <%= f.text_area :body, class: "input is-medium"%>
 	  </p>
+
+	</br>
 	  <p>
-	  	  <%= f.submit %>
+	  	  <%= f.submit class: "button is-block is-success is-medium is-fullwidth"%>
 	  </p>
+	  	</div>
+</div>
 	<% end %>
+
 <% end %>

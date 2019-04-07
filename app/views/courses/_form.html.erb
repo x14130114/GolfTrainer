@@ -23,43 +23,48 @@
     </div>
   <% end %>
 
+<div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
   <div class="field">
-    <%= form.label :course_name %>
-    <%= form.text_field :course_name %>
+    <%= form.label :course_name, class: "label is-medium" %>
+    <%= form.text_field :course_name, class: "input is-medium" %>
   </div>
 
   <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+    <%= form.label :location, class: "label is-medium" %>
+    <%= form.text_field :location, class: "input is-medium" %>
   </div>
 
   <div class="field">
-    <%= form.label :holes %>
-    <%= form.number_field :holes %>
+    <%= form.label :holes, class: "label is-medium" %>
+    <%= form.number_field :holes, class: "input is-medium" %>
   </div>
 
   <div class="field">
-    <%= form.label :par %>
-    <%= form.number_field :par %>
+    <%= form.label :par, class: "label is-medium" %>
+    <%= form.number_field :par, class: "input is-medium" %>
   </div>
 
   <div class="field">
-    <%= form.label :latitude %>
-    <%= form.text_field :latitude %>
+    <%= form.label :latitude, class: "label is-medium" %>
+    <%= form.text_field :latitude, class: "input is-medium" %>
   </div>
 
   <div class="field">
-    <%= form.label :longitude %>
-    <%= form.text_field :longitude %>
+    <%= form.label :longitude, class: "label is-medium" %>
+    <%= form.text_field :longitude, class: "input is-medium" %>
   </div>
 
   <p>
     <div id="map2"></div>
   </p>
+  <br/>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "button is-block is-success is-medium is-fullwidth"  %>
   </div>
 <% end %>
+</div>
+</div>
 </body>
 </html>

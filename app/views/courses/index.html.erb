@@ -20,10 +20,10 @@
         <td><%= course.location %></td>
         <td><%= course.holes %></td>
         <td><%= course.par %></td>
-        <td><%= link_to 'Show', course %></td>
+        <td><%= link_to 'Show', course, class: "button is-rounded is-success is-small" %></td>
         <% if current_user && current_user.admin? %>
-          <td><%= link_to 'Edit', edit_course_path(course) %></td>
-          <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Edit', edit_course_path(course), class: "button is-rounded is-primary is-small" %></td>
+          <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "button is-rounded is-danger is-small" %></td>
         <% end %>
       </tr>
     <% end %>

@@ -11,37 +11,36 @@
     </div>
   <% end %>
 
+<div class="container has-text-centered">
+    <div class="column is-4 is-offset-4">
   <div class="field">
-    <%= form.label :photo %>
-    <%= form.text_field :photo %>
+    <%= form.label :first_name, class: "label is-medium" %>
+    <%= form.text_field :first_name, class: "input is-medium" %>
   </div>
 
   <div class="field">
-    <%= form.label :first_name %>
-    <%= form.text_field :first_name %>
+    <%= form.label :last_name, class: "label is-medium" %>
+    <%= form.text_field :last_name, class: "input is-medium"  %>
   </div>
 
   <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
+    <%= form.label :phone, class: "label is-medium" %>
+    <%= form.text_field :phone, class: "input is-medium"  %>
   </div>
 
   <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
+    <%= form.label :bio, class: "label is-medium" %>
+    <%= form.text_area :bio, class: "input is-medium"  %>
   </div>
 
   <div class="field">
-    <%= form.label :bio %>
-    <%= form.text_area :bio %>
-  </div>
-
-  <div class="field">
-    <%= form.label :experience %>
-    <%= form.text_field :experience %>
+    <%= form.label :experience, class: "label is-medium" %>
+    <%= form.text_field :experience, class: "input is-medium"  %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "button is-block is-success is-medium is-fullwidth" %>
   </div>
+</div>
+</div>
 <% end %>

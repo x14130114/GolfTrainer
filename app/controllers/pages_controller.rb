@@ -13,9 +13,9 @@ class PagesController < ApplicationController
   	@current_name=WeatherApi.find_name("dublin")
   	@current_name1=WeatherApi.find_name("cork")
   	@current_weather2=WeatherApi.find_city("wicklow")
-  	@current_weather3=WeatherApi.find_city("kildare")
+  	@current_weather3=WeatherApi.find_city("sligo")
   	@current_name2=WeatherApi.find_name("wicklow")
-  	@current_name3=WeatherApi.find_name("kildare")
+  	@current_name3=WeatherApi.find_name("sligo")
   	@current_weather4=WeatherApi.find_city("meath")
   	@current_name4=WeatherApi.find_name("meath")
   end
